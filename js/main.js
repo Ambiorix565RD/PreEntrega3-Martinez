@@ -29,22 +29,49 @@ let descuentoConComas = 0;
 let descuentoFinal = 0;
 let descuentoFinalConComas =0;
 const carrito = [];
+const cantidadProductos = {};
+
+//funciones
 
 //funcion sumar una variable y una constante
 function sumar(num1, num2) {
     return num1 + num2;
 }
 
+//funcion para instanciar objetos
 function Instrumentos (marca, precio){
     this.marca = marca;
     this.precio = precio;
 }
 
-
+// funcion para recorrer los objetos del array e ir monstrandolos en pantalla
 function Recorrer (object){
     
     for (const iterator of object) {
         alert("Marca: " + iterator.marca + ", Precio: " + iterator.precio);
+    }
+}
+
+// Función para agregar un producto al carrito y actualizar su cantidad
+function agregarProductoACarrito(producto) {
+    if (cantidadProductos[producto.marca]) {
+        cantidadProductos[producto.marca]++;
+    } else {
+        cantidadProductos[producto.marca] = 1;
+        carrito.push(producto);
+    }
+}
+
+// Función para mostrar el contenido del carrito
+function mostrarCarrito() {
+    if (carrito.length === 0) {
+        alert("El carrito está vacío");
+    } else {
+        let mensaje = "Contenido del carrito:\n\n";
+        carrito.forEach(function(item) {
+            mensaje += "Cantidad: " + cantidadProductos[item.marca] + " Producto: " + item.marca + ", Precio: " + item.precio + "\n\n";
+        });
+        alert(mensaje);
     }
 }
 
@@ -71,8 +98,8 @@ while (opcion != "6"){
                     //contador para al final ofrecer descuento al cliente que compre 3 productos
                     conteoDescuento = conteoDescuento + 1;
                     const bateriaAcustica1 = new Instrumentos ("Yamaha RDP0F5 HOR Batería acústica Rydeen, Hot Red", "RD$37,252")
-                    carrito.push(bateriaAcustica1)
-                    Recorrer(carrito)
+                    agregarProductoACarrito(bateriaAcustica1);
+                    mostrarCarrito()
 
                 } else if(opcion == "2"){
                     alert ("Usted seleccionó el producto: RDP2F5 PB Batería acústica Rydeen, Plateado brillante Bombo 22 RD$39,524.41");
@@ -84,8 +111,9 @@ while (opcion != "6"){
                     subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                     conteoDescuento = conteoDescuento + 1;
                     const bateriaAcustica2 = new Instrumentos ("RDP2F5 PB Batería acústica Rydeen, Plateado brillante Bombo 22", "RD$39,524.41")
-                    carrito.push(bateriaAcustica2)
-                    Recorrer(carrito)
+                    agregarProductoACarrito(bateriaAcustica2);
+                    mostrarCarrito()
+                    
                 }
             }
     }
@@ -105,8 +133,9 @@ while (opcion != "6"){
                 subtotal= suma - impuesto;
                 subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 conteoDescuento = conteoDescuento + 1;
-                const carrito = new Instrumentos ("Alesis nitro mesh Kit", "RD$68,550.00")
-                
+                const bateriaElectrica1 = new Instrumentos ("Alesis nitro mesh Kit", "RD$68,550.00")
+                agregarProductoACarrito(bateriaElectrica1);
+                mostrarCarrito()
 
             } else if(opcion == "2"){
                 alert ("Usted seleccionó el producto: VAD103 Bateria electroacústica DESING KIT RD$203,522.86");
@@ -117,8 +146,9 @@ while (opcion != "6"){
                 subtotal= suma - impuesto;
                 subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 conteoDescuento = conteoDescuento + 1;
-                const carrito = new Instrumentos ("VAD103 Bateria electroacústica DESING KIT", "RD$203,522.86")
-
+                const bateriaElectrica2 = new Instrumentos ("VAD103 Bateria electroacústica DESING KIT", "RD$203,522.86")
+                agregarProductoACarrito(bateriaElectrica2);
+                mostrarCarrito()
             }
         }
 
@@ -138,7 +168,9 @@ while (opcion != "6"){
                 subtotal= suma - impuesto;
                 subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 conteoDescuento = conteoDescuento + 1;
-                const carrito = new Instrumentos ("1-CC-141620+18 Set de platillos Custom Classic (5)", "RD$203,522.86")
+                const platillos1 = new Instrumentos ("1-CC-141620+18 Set de platillos Custom Classic (5)", "RD$43,204.41")
+                agregarProductoACarrito(platillos1);
+                mostrarCarrito()
                
 
             } else if(opcion == "2"){
@@ -150,7 +182,9 @@ while (opcion != "6"){
                 subtotal= suma - impuesto;
                 subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 conteoDescuento = conteoDescuento + 1;
-                
+                const platillos2 = new Instrumentos ("CC4680-DB CL.CU. Double Bonus SET", "RD$63,230.30")
+                agregarProductoACarrito(platillos2);
+                mostrarCarrito()
 
             }
         }
@@ -160,7 +194,7 @@ while (opcion != "6"){
     else if(opcion == "4"){
 
         while(opcion != "0"){
-            opcion = parseFloat( prompt("Los accesorios que tenemos son: \n\n 1-TXR5AW Bolillos Forward 5A RAW RD$932.20 \n\n 2-TDSB Estuche Deluxe para bolillos color verde militar RD$3,455.04 \n"));
+            opcion = parseFloat( prompt("Los accesorios que tenemos son. Presiona 0 para volver: \n\n 1-TXR5AW Bolillos Forward 5A RAW RD$932.20 \n\n 2-TDSB Estuche Deluxe para bolillos color verde militar RD$3,455.04 \n"));
             
             if (opcion == "1") {
                 alert ("Usted seleccionó el producto: TXR5AW Bolillos Forward 5A RAW RD$932.20");
@@ -171,6 +205,9 @@ while (opcion != "6"){
                 subtotal= suma - impuesto;
                 subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 conteoDescuento = conteoDescuento + 1;
+                const accesorios1 = new Instrumentos ("TXR5AW Bolillos Forward 5A RAW", "RD$932.20")
+                agregarProductoACarrito(accesorios1);
+                mostrarCarrito()
                 
 
             } else if(opcion == "2"){
@@ -182,6 +219,9 @@ while (opcion != "6"){
                 subtotal= suma - impuesto;
                 subtotalConComas = subtotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 conteoDescuento = conteoDescuento + 1;
+                const accesorios2 = new Instrumentos ("TDSB Estuche Deluxe para bolillos color verde militar", "RD$3,455.04")
+                agregarProductoACarrito(accesorios2);
+                mostrarCarrito()
             }
 
         }
@@ -200,11 +240,13 @@ while (opcion != "6"){
             descuentoFinal = suma - descuento;
             descuentoFinalConComas = descuentoFinal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
             //mostrar todos los resultados
+            mostrarCarrito();
             alert("Subtotal: RD$"+ subtotalConComas + "\nImpuestos: RD$"+impuestoConComas + "\nTotal con impuestos incl.: RD$"+ sumaConComas + "\nDescuento: RD$" +descuentoConComas + "\nTotal con impuestos y descuento incl.: RD$"+ descuentoFinalConComas);
 
         }else if(conteoDescuento < 3 && conteoDescuento != 0){
             //condicion para el que no aplica para el descuento
             alert("¡Usted seleccionó: "+conteoDescuento +" productos!" +"\n\n¡No aplica para un 10% de descuento!");
+            mostrarCarrito();
             alert("Subtotal: RD$"+ subtotalConComas + "\nImpuestos: RD$"+impuestoConComas + "\nTotal con impuestos incl.: RD$"+ sumaConComas);
         }
         else if(conteoDescuento == 0){
@@ -219,6 +261,6 @@ while (opcion != "6"){
     opcion =prompt("Selecciona un producto: \n\n 1-Baterías acústicas \n 2-Baterías eléctricas \n 3-Platillos \n 4-Acessorios \n 5-Ver el total\n 6-Salir \n");
 }
 //mensaje de despedida
-alert("Gracias por visitar nuestra tienda espero que vuelvas pronto!");
+alert("Gracias" + usuario + " por visitar nuestra tienda espero que vuelvas pronto!");
 
 
