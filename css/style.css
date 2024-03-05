@@ -1,0 +1,30 @@
+html{
+    background-color: antiquewhite;
+}
+
+.titulos{
+    margin-top: 16vw;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+    text-align: center;
+    color:black;
+}
+
+.titulos h2{
+    
+    font-size: 2vw;
+    
+}
+
+.imagen{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.imagen img{
+    
+    height: 22vw;
+    width: 22vw;
+}
