@@ -4,7 +4,7 @@
 alert("Bienvenido a la mejor tienda de instrumentos musicales!! Aquí encontrarás: \n\nBaterías acústicas, Baterías eléctricas, platillos y Accesorios. \n\nTodos al mejor precio del mercado. \n\n ¡¡Tenemos interesantes DESCUENTOS para aquellos que elijan más de 3 productos, así que...!! \n\n!Ven y descubrelo!");
 
 //Inicio sesion
-let usuario = prompt("Ingresa su nombre")
+let usuario = prompt("Ingrese su nombre")
 
 alert("Bienvenido/a "+ usuario + " a AmbiDrums la mejor tienda de instrumentos musicales!")
 
