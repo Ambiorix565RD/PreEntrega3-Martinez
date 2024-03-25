@@ -113,7 +113,7 @@ function crearHtml(arr) {
           </p>
           <p><strong>RD$${precio.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong></p>
           <div class="logo-button-shopp">
-          <button class="btn btn-primary button-instrument-tienda" id="button-instrument-tienda" id="${id}" onclick="btnCarrito(${id})">Agregar al carrito <img src="./../assets/img/shopping.svg" alt="logo-shopping"></button>
+          <button class="btn btn-primary button-instrument-tienda card-instrument-tienda logo-button-shopp" id="button-instrument-tienda" id="${id}" onclick="btnCarrito(${id})">Agregar al carrito <img src="./../assets/img/shopping.svg" alt="logo-shopping"></button>
           </div>
       </div>`;
       //se la agrego al contenedor
