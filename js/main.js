@@ -46,6 +46,13 @@ function btnCarrito(id) {
   }
 }
 
+//Funcion para quitar un producto del carrito.
+function opcionEliminar(id) {
+  carrito = carrito.filter(producto => producto.id !== id);
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  mostrarCarrito(); 
+}
+
 //Para mostrar los productos del carrito en el html
 function mostrarCarrito() {
   const carritoContenedor = document.getElementById("carritoContenedor");
@@ -54,18 +61,25 @@ function mostrarCarrito() {
   totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
   carrito.forEach(producto => {
-      const { img, nombre, precio } = producto;
+      const { img, nombre, precio, id } = producto;
 
       const html = `
           <div class="carrito-item">
               <img src="././assets/img/${img}" alt="${nombre}" />
               <h4>${nombre}</h4>
               <p>RD$${precio.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+              <button class="btn btn-primary" id="btneliminar" onclick="opcionEliminar(${id})">Eliminar</button>
           </div>
       `;
 
       carritoContenedor.innerHTML += html;
   });
+}
+
+//Para Ver el total en el HTML
+function mostrarTotalCarrito() {
+  const totalCarritoElement = document.getElementById("totalCarrito");
+  totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 //Para hacer la sumatoria total
@@ -77,12 +91,6 @@ function totalCarrito() {
   });
 
   return total;
-}
-
-//Para Ver el total en el HTML
-function mostrarTotalCarrito() {
-  const totalCarritoElement = document.getElementById("totalCarrito");
-  totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 // Función para crear estructura html

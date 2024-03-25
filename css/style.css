@@ -89,6 +89,12 @@
     padding: 15px;
   }
 
+  #btneliminar{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
 /*  footer*/
 footer section {
     margin-top: 5rem;
