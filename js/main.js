@@ -1,16 +1,21 @@
 //Preentrega 3
+let carrito = [];
 
-    //Local Storage
+//Funcion para que funcione el local Storage
+function mostrarProductos(){
+  const cardInstrumento = document.getElementById("card-instrument-tienda")
+  cardInstrumento.innerHTML = "";
+  crearHtml(instrumentos);
+}
+
+
+
+   // Local Storage
 //Verificar si hay un producto en el carrito
-// if (localStorage.getItem('carrito')) {
-//    carrito = JSON.parse(localStorage.getItem('carrito'));
-//   mostrarCarrito();  // Actualizar el HTML del carrito
-// } 
-
-
-const btnSearch = document.querySelector("#btnSearch"), 
-  carritoContenedor = document.getElementById("carritoContenedor"), cardInstrumento = document.getElementById("card-instrument-tienda"),
-  totalCarritoElement = document.getElementById("totalCarrito");
+if (localStorage.getItem('carrito')) {
+  carrito = JSON.parse(localStorage.getItem('carrito'));
+ mostrarCarrito();  // Actualizar el HTML del carrito
+} 
 
 const instrumentos = [
     {id:1, nombre: "Yamaha RDP0F5 HOR Batería acústica Rydeen, Hot Red", precio: 37252.12, descripcion: "Juego de batería de 5 tambores. Color rojo candente" ,img: "bateriaAcustica1.jpg"  },
@@ -23,89 +28,66 @@ const instrumentos = [
     {id:8, nombre: "MDH DRUM Almohadillas amortiguadoras de Miel", descripcion: "Apagadores DRUM HONEY DAMPER PADS" , precio: 710.81, img: "accesorios2.jpg"  },
 ] ;
 
-//Funciones de búsqueda
-function buscarServicio(arr, filtro) {
-    const encontrado = arr.find((el) => {
-      return el.nombre.includes(filtro);
-    });
-    return encontrado;
-  }
-  function filtrarServicio(arr, filtro) {
-    const filtrado = arr.filter((el) => {
-      return el.nombre.includes(filtro);
-    });
-    return filtrado;
-  }
-
-let carrito = [];
-
-//Funcion para que funcione el local Storage
-function mostrarProductos(){
-  
-  cardInstrumento.innerHTML = "";
-  crearHtml(instrumentos);
-}
-
-
 // Agregar productos al carrito
 function btnCarrito(id) {
-    // Buscar el producto en el array de instrumentos
-    const producto = instrumentos.find(item => item.id === id);
+  // Buscar el producto en el array de instrumentos
+  const producto = instrumentos.find(item => item.id === id);
 
-    //verificamos y actualizamos al carrito
-    if (producto) {
+  //verificamos y actualizamos al carrito
+  if (producto) {
 
-        carrito.push(producto);
+      carrito.push(producto);
 
-        // Guardar el carrito en localStorage
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        mostrarCarrito();
-    } else {
-        console.error("Producto no encontrado");
-    }
+      // Guardar el carrito en localStorage
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      mostrarCarrito();
+  } else {
+      console.error("Producto no encontrado");
+  }
 }
 
 //Para mostrar los productos del carrito en el html
 function mostrarCarrito() {
-    
-    carritoContenedor.innerHTML = "";
-    totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const carritoContenedor = document.getElementById("carritoContenedor");
+  carritoContenedor.innerHTML = "";
+  const totalCarritoElement = document.getElementById("totalCarrito");
+  totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-    carrito.forEach(producto => {
-        const { img, nombre, precio } = producto;
+  carrito.forEach(producto => {
+      const { img, nombre, precio } = producto;
 
-        const html = `
-            <div class="carrito-item">
-                <img src="././assets/img/${img}" alt="${nombre}" />
-                <h4>${nombre}</h4>
-                <p>RD$${precio.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-            </div>
-        `;
+      const html = `
+          <div class="carrito-item">
+              <img src="././assets/img/${img}" alt="${nombre}" />
+              <h4>${nombre}</h4>
+              <p>RD$${precio.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          </div>
+      `;
 
-        carritoContenedor.innerHTML += html;
-    });
+      carritoContenedor.innerHTML += html;
+  });
 }
 
 //Para hacer la sumatoria total
 function totalCarrito() {
-    let total = 0;
+  let total = 0;
 
-    carrito.forEach(producto => {
-        total += producto.precio;
-    });
+  carrito.forEach(producto => {
+      total += producto.precio;
+  });
 
-    return total;
+  return total;
 }
 
 //Para Ver el total en el HTML
 function mostrarTotalCarrito() {
-
-    totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const totalCarritoElement = document.getElementById("totalCarrito");
+  totalCarritoElement.textContent = `Total: RD$${totalCarrito().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
-
 
 // Función para crear estructura html
 function crearHtml(arr) {
+    const cardInstrumento = document.getElementById("card-instrument-tienda")
     cardInstrumento.innerHTML = "";
     //validar qué pasa cuando no recibo ningun array
     let html;
@@ -130,8 +112,8 @@ function crearHtml(arr) {
       cardInstrumento.innerHTML += html;
     }
   }
-  crearHtml(instrumentos)
 
-
+// Llamar a la función mostrarProductos al cargar la página
+mostrarProductos();
 
 
