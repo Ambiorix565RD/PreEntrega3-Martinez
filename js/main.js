@@ -1,8 +1,15 @@
 //Preentrega 3
 
-const btnSearch = document.querySelector("#btnSearch"),
-  cardInstrumento = document.querySelector("#card-instrument-tienda"),
-  carritoContenedor = document.getElementById("carritoContenedor"),
+    //Local Storage
+//Verificar si hay un producto en el carrito
+// if (localStorage.getItem('carrito')) {
+//    carrito = JSON.parse(localStorage.getItem('carrito'));
+//   mostrarCarrito();  // Actualizar el HTML del carrito
+// } 
+
+
+const btnSearch = document.querySelector("#btnSearch"), 
+  carritoContenedor = document.getElementById("carritoContenedor"), cardInstrumento = document.getElementById("card-instrument-tienda"),
   totalCarritoElement = document.getElementById("totalCarrito");
 
 const instrumentos = [
@@ -30,7 +37,15 @@ function buscarServicio(arr, filtro) {
     return filtrado;
   }
 
-const carrito = [];
+let carrito = [];
+
+//Funcion para que funcione el local Storage
+function mostrarProductos(){
+  
+  cardInstrumento.innerHTML = "";
+  crearHtml(instrumentos);
+}
+
 
 // Agregar productos al carrito
 function btnCarrito(id) {
@@ -39,7 +54,11 @@ function btnCarrito(id) {
 
     //verificamos y actualizamos al carrito
     if (producto) {
+
         carrito.push(producto);
+
+        // Guardar el carrito en localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
         mostrarCarrito();
     } else {
         console.error("Producto no encontrado");
@@ -113,6 +132,6 @@ function crearHtml(arr) {
   }
   crearHtml(instrumentos)
 
-  
+
 
 
