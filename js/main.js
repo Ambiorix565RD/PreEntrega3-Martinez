@@ -24,6 +24,7 @@ const instrumentos = [
     {id:6, nombre: "CC-141620+18 Set de platillos Custom Classic (5)", precio: 43204.41, descripcion: "Meinl Custom Juegos de platillos" , img: "platillos2.jpg"  },
     {id:7, nombre: "TXR5AW Bolillos Forward 5A RAW", precio: 932.20, descripcion: "Bolillos y Brochas" , img: "accesorios1.png"  },
     {id:8, nombre: "MDH DRUM Almohadillas amortiguadoras de Miel", descripcion: "Apagadores DRUM HONEY DAMPER PADS" , precio: 710.81, img: "accesorios2.jpg"  },
+    {img:"shopping.svg"},
 ] ;
 
 // Agregar productos al carrito
