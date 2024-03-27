@@ -23,6 +23,7 @@
       <!--main tienda-->
       <main class="main-tienda">
 
+        
         <section>
           <div class="align-items">
             <div id="titulo-tienda">
@@ -37,14 +38,19 @@
                 <div id="category-tienda">
                     <h2>Baterías acústicas | Baterías eléctricas | Platillos | Accesorios</h2>
                 </div>
+          <!--Input buscador-->
+          <div class="col-md-2 form-contact">
+              <label for="input" class="form-label">Buscar instrumento</label>
+              <input type="text" class="form-control" id="input" />
+          </div>
             <div class="div-instrument-tienda" >
                 <!--imagenes-->
                 <div id="card-instrument-tienda" class="card-instrument-tienda">
                 </div>
             </div>
-
           </div>  
         </section>
+
 
         <!--line division-->
         <section> 
@@ -56,8 +62,10 @@
             <div id="carritoContenedor" id="btneliminar">
                 
             </div>
+            <div class="botonCarrito">
             <button class="btn btn-primary" id="btnCalcularCarrito" onclick="mostrarTotalCarrito()">Calcular Total</button>
                     <p id="totalCarrito">Total: RD$0.00</p>
+            </div>
         </section>
 
       </main>

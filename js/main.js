@@ -8,8 +8,6 @@ function mostrarProductos(){
   crearHtml(instrumentos);
 }
 
-
-
    // Local Storage
 //Verificar si hay un producto en el carrito
 if (localStorage.getItem('carrito')) {
@@ -125,3 +123,25 @@ function crearHtml(arr) {
 mostrarProductos();
 
 
+const inputs =  document.querySelectorAll('input')
+const inputSearch = inputs [0];
+//Funciones de búsqueda
+function buscarInstrumento(arr, filtro) {
+  const encontrado = arr.find((el) => {
+    return el.nombre.includes(filtro);
+  });
+  return encontrado;
+}
+function filtrarInstrumento(arr, filtro) {
+  const filtrado = arr.filter((el) => {
+    return el.nombre.toLowerCase().includes(filtro.toLowerCase());
+  });
+  return filtrado;
+}
+
+//buscador de servicios por barra de busqueda de la pagina
+inputSearch.addEventListener('keyup', ()=>{
+
+  const encontrado = filtrarInstrumento(instrumentos, inputSearch.value)
+  crearHtml(encontrado)
+})

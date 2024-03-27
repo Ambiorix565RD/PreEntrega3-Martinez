@@ -1,4 +1,21 @@
 
+/*Resets*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #2b3035;
+}
+
+/*Fuente google*/
+@font-face {
+  font-family: "Andreas";
+  src: url(../assets/fonts/Andreas.ttf);
+}
+
 /*linea divisora*/
 .line-front-page {
     border-top: 1px solid #8b8b8b;
@@ -95,6 +112,29 @@
     padding: 15px;
   }
 
+  /*margenes*/
+.form-contact{
+  display: inline-block;
+  margin: 25px;
+  font-size: 1vw;
+  font-weight:400;
+}
+
+
+/*Boton*/
+.button-contact{
+
+  font-family: inherit;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.botonCarrito{
+  margin-top: 15vw;
+  text-align: center;
+}
+
 /*  footer*/
 footer section {
     margin-top: 5rem;
@@ -151,3 +191,505 @@ footer section {
     transform: translate(0, -12px);
     transition: 0.5S;
   }
+
+  /*Media Query todas las paginas*/
+/*Media query nav bar*/
+@media screen and (max-width: 991px) {
+  header nav .container .menu .menu-items {
+    align-items: center;
+    z-index: 1;
+    width: 100vw;
+    background-color: #f8f9fa;
+  }
+}
+
+/*Media query para monitores pequeños*/
+@media screen and (max-width: 1450px) and (min-width: 1025px) {
+  
+    /*Tienda*/
+  .main-tienda section #titulo-tienda h1 {
+    color: #0048b1;
+    font-family: "Andreas";
+    font-weight: bold;
+    font-size: 3.5vw;
+    padding-top: 3rem;
+    margin-bottom: 16px;
+  }
+  .main-tienda section #category-tienda h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.5vw;
+    padding-top: 3rem;
+    margin-bottom: 16px;
+  }
+  .main-tienda section #card-instrument-tienda{
+    display: grid;
+    grid-template-columns: repeat(3, 26vw);
+    text-align: center;
+    align-items: end;
+    justify-content: start;
+    gap: 4rem;
+    margin: 3rem;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda {
+    width: 280px;
+    transition: 0.5S;
+  }
+
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda h3{
+      font-size: 2.3vw;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda:hover {
+    transform: translate(-25px, -25px);
+    transition: 0.5S;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda img {
+    width: 100%;
+    border-radius: 5%;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda .logo-button-shopp .button-instrument-tienda {
+    background-color: #0048b1;
+    font-family: "Andreas";
+    font-weight: 700;
+    padding: 15px;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda .logo-button-shopp img {
+    height: 25px;
+    width: 25px;
+  }
+
+  #carritoContenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 26vw);
+    text-align: center;
+    align-items: end;
+    justify-content: start;
+    gap: 4rem;
+    margin: 3rem;
+  }
+
+
+  .carrito h1{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 3.0vw;
+    padding-top: 2rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .carrito-item img{
+    width: 220px;
+  }
+  .carrito-item h4{
+    font-size: 2.0vw;
+  }
+  .carrito-item P {
+    font-size: 1.5vw;
+    font-weight: 400;
+  }
+  #btnCalcularCarrito{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
+  #btneliminar{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
+  .botonCarrito{
+    margin-top: 15vw;
+    text-align: center;
+  }
+
+  /*margenes*/
+  .form-contact{
+  display: inline-block;
+  margin: 25px;
+  font-size: 1.5vw;
+  font-weight:400;
+  }
+
+  .form-control{
+    padding: 0px;
+  }
+
+  footer section {
+    margin-top: 5rem;
+    background-color: #f8f9fa;
+  }
+  footer section #footer-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  footer section #footer-img img {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 5%;
+  }
+  footer section .div-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    align-self: start;
+    text-align: center;
+    padding: 0 3vw 0 3vw;
+    gap: 15vw;
+  }
+  footer section .div-footer h3 {
+    font-size: 1.5rem;
+  }
+  footer section .div-footer p {
+    font-size: 1.3rem;
+  }
+  footer section .footer-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    padding-left: 0;
+    padding-bottom: 1vw;
+    margin-bottom: 0;
+  }
+  footer section .footer-list ul li {
+    list-style-type: none;
+  }
+ 
+}
+
+/*Media query para tablet*/
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  
+  /*Tienda*/
+  .main-tienda section #titulo-tienda h1 {
+    color: #0048b1;
+    font-family: "Andreas";
+    font-weight: bold;
+    font-size: 3.7vw;
+    padding-top: 3rem;
+    margin-bottom: 16px;
+  }
+  .main-tienda section #category-tienda h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.7vw;
+    padding-top: 3rem;
+    margin-bottom: 16px;
+  }
+  .main-tienda section #card-instrument-tienda{
+    display: grid;
+    grid-template-columns: repeat(2, 40vw);
+    text-align: center;
+    align-items: end;
+    justify-content: start;
+    gap: 4rem;
+    margin: 0vw 12vw 12vw 12vw;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda {
+    width: 220px;
+    transition: 0.5S;
+  }
+
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda h3{
+      font-size: 2.3vw;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda:hover {
+    transform: translate(-25px, -25px);
+    transition: 0.5S;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda img {
+    width: 100%;
+    border-radius: 5%;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda .logo-button-shopp .button-instrument-tienda {
+    background-color: #0048b1;
+    font-family: "Andreas";
+    font-weight: 700;
+    padding: 13px;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda .logo-button-shopp img {
+    height: 25px;
+    width: 25px;
+  }
+
+  #carritoContenedor{
+    display: grid;
+    grid-template-columns: repeat(2, 40vw);
+    text-align: center;
+    align-items: end;
+    justify-content: start;
+    gap: 4rem;
+    margin: 3rem;
+  }
+
+  .carrito h1{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 3.0vw;
+    padding-top: 2rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .carrito-item img{
+    width: 220px;
+  }
+  .carrito-item h4{
+    font-size: 2.0vw;
+  }
+  .carrito-item P {
+    font-size: 2vw;
+    font-weight: 400;
+  }
+  #btnCalcularCarrito{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
+  #btneliminar{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
+  .botonCarrito{
+    margin-top: 15vw;
+    text-align: center;
+  }
+
+  /*margenes*/
+  .form-contact{
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 1.8vw;
+  font-weight:400;
+  }
+
+  .form-control{
+    padding: 0px;
+  }
+
+  footer section {
+    margin-top: 5rem;
+    background-color: #f8f9fa;
+  }
+  footer section #footer-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  footer section #footer-img img {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 5%;
+  }
+  footer section .div-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    align-self: start;
+    text-align: center;
+    margin: 0vw 10vw 0vw 10vw;
+  }
+  footer section .div-footer h3 {
+    font-size: 1.3rem;
+  }
+  footer section .div-footer p {
+    font-size: 1.1rem;
+  }
+  footer section .footer-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    padding-left: 0;
+    padding-bottom: 1vw;
+    margin-bottom: 0;
+  }
+  footer section .footer-list ul li {
+    list-style-type: none;
+  }
+}
+
+/*Para dispositivos pequeños*/
+@media screen and (max-width: 768px) {
+  header nav .container {
+    padding-left: 0;
+  }
+  header nav .container .menu-logo img {
+    width: 20vw;
+  }
+  header nav .container .menu-navbar .logo-img-svg {
+    background-image: url(../assets/img/imagen-menu1.svg);
+  }
+  header nav .container .menu {
+    flex-grow: 0;
+    font-weight: 500;
+  }
+  header nav .container .menu .menu-items {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+ 
+  /*Tienda*/
+  .main-tienda section #titulo-tienda h1 {
+    color: #0048b1;
+    font-family: "Andreas";
+    font-weight: bold;
+    font-size: 5vw;
+    padding-top: 3rem;
+    margin-bottom: 16px;
+  }
+  .main-tienda section #category-tienda h2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 4.5vw;
+    padding: 2rem 2rem 2.5rem 2rem;
+    margin-bottom: 16px;
+  }
+  .main-tienda section #card-instrument-tienda{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    text-align: center;
+    align-items: end;
+    justify-content: space-around;
+    gap: 4rem;
+    margin: 0vw 10vw 10vw 10vw;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda {
+    transition: 0.5S;
+  }
+
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda h3{
+      font-size: 4.8vw;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda:hover {
+    transform: translate(-25px, -25px);
+    transition: 0.5S;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda img {
+    width: 100%;
+    border-radius: 5%;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda .logo-button-shopp .button-instrument-tienda {
+    background-color: #0048b1;
+    font-family: "Andreas";
+    font-weight: 700;
+    padding: 13px;
+  }
+  .main-tienda section .div-instrument-tienda .card-instrument-tienda .logo-button-shopp img {
+    height: 25px;
+    width: 25px;
+  }
+
+  #carritoContenedor{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    text-align: center;
+    align-items: end;
+    justify-content: start;
+    gap: 4rem;
+    margin: 3rem;
+  }
+
+  .carrito h1{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 6.0vw;
+    padding-top: 2rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .carrito-item img{
+    width: 220px;
+  }
+  .carrito-item h4{
+    font-size: 4.5vw;
+  }
+  .carrito-item P {
+    font-size: 4.5vw;
+    font-weight: 400;
+  }
+  #btnCalcularCarrito{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
+  #btneliminar{
+    text-align: center;
+    background-color: #0048b1;
+    padding: 15px;
+  }
+
+  .botonCarrito{
+    margin-top: 25vw;
+    text-align: center;
+  }
+
+  /*margenes*/
+  .form-contact{
+    display: inline-block;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    font-size: 4vw;
+    font-weight:400;
+  }
+
+  .form-control{
+    padding: 0px;
+  }
+
+  footer section {
+    margin-top: 5rem;
+    background-color: #f8f9fa;
+  }
+  footer section #footer-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  footer section #footer-img img {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 5%;
+  }
+  footer section .div-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    align-self: start;
+    text-align: center;
+    margin: 0vw 2vw 0vw 2vw;
+  }
+  footer section .div-footer h3 {
+    font-size: 1rem;
+  }
+  footer section .div-footer p {
+    font-size: 0.9rem;
+  }
+  footer section .footer-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    padding-left: 0;
+    padding-bottom: 1vw;
+    margin-bottom: 0;
+  }
+  footer section .footer-list ul li {
+    list-style-type: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
